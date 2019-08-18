@@ -1,5 +1,24 @@
 package com.made.easy.dataStructure.stack;
 
+/*
+ *    In Stack, the order in which data arrives is important. The pile of plates of a cafeteria is a good example of stack. The plates
+ *    are added to the stack as they are cleaned. They are placed on the top. When a plate is required it is taken from the top
+ *    of the stack. The first plate placed on the stack is the last one to be used.
+ *
+ *    A stack is an ordered list in which insertion and deletion are done at one end, called as top. The last element inserted is the first
+ *    one to be deleted. Hence, it is called Last in First out (LIFO).
+ *
+ *     ----------------------------------------------------------------
+ *     | Space Complexity (for n push operation)        |     O(n)     |
+ *     | Time Complexity of push()                      |     O(1)     |
+ *     | Time Complexity of pop()                       |     O(1)     |
+ *     | Time Complexity of size()                      |     O(1)     |
+ *     | Time Complexity of isEmpty()                   |     O(1)     |
+ *     | Time Complexity of isFullStack()               |     O(1)     |
+ *     | Time Complexity of deleteStack()               |     O(1)     |
+ *     -----------------------------------------------------------------
+ */
+
 public class FixedSizeArrayStack {
 
     //Length of the array used to implement the stack
@@ -35,9 +54,14 @@ public class FixedSizeArrayStack {
         return (top < 0);
     }
 
+    //Test whether the stack is full. This method runs in o(1) time
+    public boolean isFullStack(){
+        return (size()== capacity);
+    }
+
     //Insert an element at the top of the stack. This method runs in o(1) time
     public void push(int data) throws Exception{
-        if(size() == CAPACITY){
+        if(isFullStack()){
             throw new Exception("Stack is full.");
         }
         stackRep[++top] = data;
