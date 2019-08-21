@@ -17,6 +17,13 @@ package com.made.easy.dataStructure.stack;
  *     | Time Complexity of isFullStack()               |     O(1)     |
  *     | Time Complexity of deleteStack()               |     O(1)     |
  *     -----------------------------------------------------------------
+ *
+ *
+ *     Incremental Array: For Example at n = 1, to push an element create a new array of size 2 and copy all the old array elements
+ *     to new array and at the end add the new element. At n = 2, to push an element create a new array of size 3 and copy all the
+ *     old array elements to new array and at the end add the new element.
+ *
+ *     This way of incrementing the arry size is too expensive.
  */
 
 public class FixedSizeArrayStack {

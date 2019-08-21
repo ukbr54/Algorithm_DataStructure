@@ -1,6 +1,11 @@
 package com.made.easy.dataStructure.stack;
 
 /**
+ *
+ *
+ *      If the arry is full, create a new array of twice the size, and copy items.With this approach, pushing n items takes time
+ *      proportional to n.
+ *
  *        ---------------------------------------------------------------
  *       | Space Complexity (for n push operation)          |   O(n)    |
  *       | Time Complexity of create stack: DynArrayStack   |   O(1)    |

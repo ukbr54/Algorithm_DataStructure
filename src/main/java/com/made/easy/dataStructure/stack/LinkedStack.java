@@ -2,6 +2,20 @@ package com.made.easy.dataStructure.stack;
 
 import java.util.EmptyStackException;
 
+/**
+ *
+ *  Array Implementation:
+ *   - Operation takes constant time.
+ *   - Expensive doubling operation once in a while.
+ *   - Any sequence of n operations (starting from the empty stack) -- "amortized" bound takes time proportional to n.
+ *
+ *
+ *  Linked List Implementation:
+ *   - Grows & shrinks gracefully.
+ *   - Every operation takes constant time O(1).
+ *   - Every operation uses extra space and time to deal with references.
+ */
+
 public class LinkedStack<T> {
 
     //indicates the size of the linked list
