@@ -26,8 +26,8 @@ public class P2_InfixToPostfixConversion {
     }
 
     public static void main(String[] args) throws Exception{
-        //String s = "A*B-(C+D)+E";
-        String s = "a+b*c";
+        String s = "A*B-(C+D)+E";
+        //String s = "a+b*c";
         String result = new String("");
         Stack<Character> stack = new Stack<Character>();
         for(int i = 0; i < s.length(); i++){
@@ -44,7 +44,7 @@ public class P2_InfixToPostfixConversion {
             //If the scanned character is ')', pop and output from the stack until an '(' is encountered.
             else if(c == ')'){
                while(!stack.isEmpty() && stack.peek() != '('){
-                   stack.pop();
+                   result += stack.pop();
                }
                if(!stack.isEmpty() && stack.peek() == '('){
                    stack.pop();
