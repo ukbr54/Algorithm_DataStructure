@@ -51,5 +51,4 @@ class Stack<T>{
         final T o = (T)elementData[top];
         return o;
     }
-
 }
