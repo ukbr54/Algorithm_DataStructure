@@ -1,7 +1,5 @@
 package com.made.easy.dataStructure.stack.problems;
 
-import java.util.Arrays;
-
 
 public class P1_SymbolBalance {
     /**

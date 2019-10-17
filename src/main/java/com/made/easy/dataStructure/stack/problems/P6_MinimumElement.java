@@ -1,7 +1,5 @@
 package com.made.easy.dataStructure.stack.problems;
 
-import java.util.Scanner;
-
 /**
  *
  *  Design a stack such that getMinimum() should be O(1).
