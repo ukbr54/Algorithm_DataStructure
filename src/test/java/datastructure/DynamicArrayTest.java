@@ -5,6 +5,7 @@ import com.made.easy.dataStructure.array.DynamicArray;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -110,5 +111,37 @@ public class DynamicArrayTest {
         for(String str : strs) list.add(str);
 
         Assert.assertTrue(list.indexOf(null) == 2);
+    }
+
+    @Test
+    public void testAddingElement(){
+        DynamicArray<Integer> list = new DynamicArray<Integer>();
+        int[] elems = {1,2,3,4,5,6,7};
+        for(int i=0; i<elems.length; i++){
+            list.add(elems[i]);
+        }
+        for (int i = 0; i < elems.length; i++) assertEquals(list.get(i).intValue(), elems[i]);
+    }
+
+    @Test
+    public void testAddAndRemove() {
+
+        DynamicArray<Long> list = new DynamicArray<Long>(0);
+
+        for (int i = 0; i < 55; i++) list.add(44L);
+        for (int i = 0; i < 55; i++) list.remove(44L);
+        assertTrue(list.isEmpty());
+
+        for (int i = 0; i < 55; i++) list.add(44L);
+        for (int i = 0; i < 55; i++) list.removeAt(0);
+        assertTrue(list.isEmpty());
+
+        for (int i = 0; i < 155; i++) list.add(44L);
+        for (int i = 0; i < 155; i++) list.remove(44L);
+        assertTrue(list.isEmpty());
+
+        for (int i = 0; i < 155; i++) list.add(44L);
+        for (int i = 0; i < 155; i++) list.removeAt(0);
+        assertTrue(list.isEmpty());
     }
 }
