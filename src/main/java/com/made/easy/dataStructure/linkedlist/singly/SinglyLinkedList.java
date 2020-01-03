@@ -83,6 +83,45 @@ public class SinglyLinkedList {
     }
 
     /**
+     * Remove and return the node at the head of the list
+     * @return
+     */
+    public ListNode removeFromBegin(){
+        if(this.head == null) throw new IllegalStateException("Linked List is empty") ;
+
+        ListNode node = head;
+        head = node.getNext();
+        node.setNext(null);
+        length--;
+        return node;
+    }
+
+    /**
+     * Remove and return the node at the end of the list
+     * In this create two pointer where one pointer ahead of other pointer.
+     * @return
+     */
+    public ListNode removeFromEnd(){
+        if(this.head == null) throw new IllegalStateException("Linked List is empty") ;
+
+        ListNode p =head, q=null;
+        //if the list contain only one node
+        if(p.getNext() == null){
+            head = null;
+            length--;
+            return p;
+        }
+        //if the list contain more than one element
+        while(p.getNext() != null){
+            q = p;
+            p = p.getNext();
+        }
+        q.setNext(null);
+        length--;
+        return p;
+    }
+
+    /**
      * Return a string representation of this collection, in the form ["str1","str2".....]
      *
      */

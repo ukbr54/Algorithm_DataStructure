@@ -18,7 +18,7 @@ public class SinglyLinkedListTest {
     }
 
     @Test
-    public void insertAtEnd(){
+    public void insertAtEndTest(){
         SinglyLinkedList list = new SinglyLinkedList();
         list.insertAtEnd(new ListNode(10));
         list.insertAtEnd(new ListNode(20));
@@ -47,5 +47,28 @@ public class SinglyLinkedListTest {
         list.insert(30,3);
 
         Assert.assertEquals("[5, 10, 20, 30, 40]","[5, 10, 20, 30, 40]");
+    }
+
+    @Test
+    public void removeFromBeginTest(){
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insertAtEnd(new ListNode(10));
+        list.insertAtEnd(new ListNode(20));
+        list.insertAtEnd(new ListNode(30));
+
+        list.removeFromBegin();
+        Assert.assertEquals("[20,30]","[20,30]");
+        Assert.assertEquals(list.length,2);
+    }
+
+    @Test
+    public void removeFromEndTest(){
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.insertAtEnd(new ListNode(10));
+        list.insertAtEnd(new ListNode(20));
+        list.insertAtEnd(new ListNode(30));
+
+        list.removeFromEnd();
+        System.out.println(list);
     }
 }
