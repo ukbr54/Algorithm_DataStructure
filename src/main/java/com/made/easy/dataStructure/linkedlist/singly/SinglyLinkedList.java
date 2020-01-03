@@ -30,7 +30,7 @@ public class SinglyLinkedList {
     /**
      * Inserting a node in singly linked list at the ending
      * - New nodes next pointer points to NULL.
-     * Last nodes next pointer to the new node
+     * - Last nodes next pointer to the new node
      * @param node
      */
     public void insertAtEnd(ListNode node){
@@ -48,8 +48,38 @@ public class SinglyLinkedList {
         length++;
     }
 
+    /**
+     * Add a new value to the list at a given position.
+     * @param data
+     * @param position
+     */
     public void insert(int data, int position){
+        if(position < 0) position = 0;
+        if(position > length) position = length;
 
+        //if the list is empty, make it be the only element.
+        if(this.head == null){
+            head = new ListNode(data);
+        }
+
+        //if adding at the front of the list
+        else if(position == 0){
+            ListNode temp = new ListNode(data);
+            temp.setNext(head);
+            head = temp;
+        }
+
+        //else find the correct position and insert. Inserting the new element after position specified
+        else{
+            ListNode temp = head;
+            for(int i=1; i<position; i++){
+                temp = temp.getNext();
+            }
+            ListNode newNode = new ListNode(data);
+            newNode.setNext(temp.getNext());
+            temp.setNext(newNode);
+        }
+        length++;
     }
 
     /**
