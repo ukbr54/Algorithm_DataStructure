@@ -6,7 +6,7 @@ import com.made.easy.dataStructure.linkedlist.ListNode;
 public class SinglyLinkedList {
 
     public int length = 0;//Length of the linked list
-    private ListNode head;//It holds the head of the list
+    public ListNode head;//It holds the head of the list
 
     public SinglyLinkedList(){
         this.length = 0;
@@ -119,6 +119,54 @@ public class SinglyLinkedList {
         q.setNext(null);
         length--;
         return p;
+    }
+
+    /**
+     * Remove the value at a given position
+     * If the position is less than 0,remove the value at position 0
+     * If the position is greater than 0, remove the value at the last position
+     * @param position
+     */
+    public void remove(int position){
+        if(position < 0) position = 0;
+        if(position >= length) position = length-1;
+        //if nothing in the list do nothing
+        if(head == null) return;
+        //if removing the head element
+        if(position == 0){
+            head = head.getNext();
+        }
+
+        //else advance to the correct position and remove
+        else{
+            ListNode temp = head;
+            for(int i=1; i<position; i++){
+                temp = temp.getNext();
+            }
+
+            temp.setNext(temp.getNext().getNext());
+        }
+        length--;
+    }
+
+    public void removeMatched(ListNode node){
+        if(head == null) return;
+
+        if(node.equals(head)){
+            head = head.getNext();
+            length--;
+            return;
+        }
+
+        ListNode p = head, q = null;
+        while((q = p.getNext() )!= null){
+            if(node.equals(q)){
+                p.setNext(q.getNext());
+                length--;
+                return;
+            }
+            p = q;
+        }
     }
 
     /**
