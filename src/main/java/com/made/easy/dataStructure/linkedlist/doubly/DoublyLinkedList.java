@@ -32,6 +32,52 @@ public class DoublyLinkedList<T> implements Iterable<T>{
         size++;
     }
 
+    /**
+     * Add an element to the tail of the linked list o(1)
+     * @param elem
+     */
+    public void addLast(T elem){
+        if(isEmpty()){
+            head = tail = new Node<T>(elem,null,null);
+        }else{
+            tail.next = new Node<T>(elem,tail,null);
+            tail = tail.next;
+        }
+        size++;
+    }
+
+    /**
+     * Add a new value to the list at a given position.
+     * All values at that position to the end move over to make room.
+     * @param elem
+     * @param index
+     */
+    public void addAt(T elem,int index){
+        if(index < 0) index = 0;
+        if(index > size) index = size;
+
+        //if the list is empty, make it be the only element
+        if(isEmpty()){
+            head = tail = new Node<T>(elem,null,null);
+        }
+        //if adding at the front of the list
+        else if(index == 0){
+            addFirst(elem);
+        }
+
+        //else find the correct position and insert
+        else{
+            Node<T> trav = head;
+            for(int i=1; i<index; i++){
+                trav = trav.next;
+            }
+            final Node<T> node = new Node<T>(elem, trav.next.prev, trav.next);
+            trav.next = node;
+            node.next.prev = node.next;
+        }
+        size++;
+    }
+
     public Iterator<T> iterator() {
         return null;
     }
@@ -50,5 +96,18 @@ public class DoublyLinkedList<T> implements Iterable<T>{
      */
     public int size(){
         return size;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Node<T> trav = head;
+        while(trav != null){
+            sb.append(trav.data + ", ");
+            trav = trav.next;
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }

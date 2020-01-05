@@ -27,4 +27,24 @@ public class DoublyLinkedListTest {
         list.addFirst(5);
         Assert.assertEquals(list.size(),2);
     }
+
+    @Test
+    public void testAddLast(){
+        list.addLast(20);
+        Assert.assertEquals(list.size(),1);
+        list.addLast(10);
+        Assert.assertEquals(list.size(),2);
+    }
+
+    @Test
+    public void testAddAtPosition(){
+        list.addFirst(40);
+        list.addFirst(7);
+        list.addFirst(15);
+        list.addFirst(4);
+
+        list.addAt(45,3);
+
+        Assert.assertEquals(list.size(),5);
+    }
 }
