@@ -96,4 +96,63 @@ public class DoublyLinkedListTest {
         list.removeLast();
         Assert.assertEquals(list.size(),1);
     }
+
+    @Test
+    public void testRemoveAt(){
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        Assert.assertEquals(list.size(),3);
+        list.removeAt(1);
+        Assert.assertEquals(list.size(),2);
+
+        list.add(40);
+        list.add(50);
+        list.add(60);
+        list.removeAt(0);
+        list.removeAt(3);
+        Assert.assertEquals(list.size(),3);
+    }
+
+    @Test
+    public void testRemoving(){
+        DoublyLinkedList<String> strs = new DoublyLinkedList<String>();
+        strs.add("a");
+        strs.add("b");
+        strs.add(null);
+        strs.add("c");
+        strs.add("d");
+        strs.add("e");
+        strs.add("f");
+
+        strs.remove(null);
+        strs.remove("b");
+        strs.remove("a");
+        strs.remove("d");
+        strs.remove("e");
+        strs.remove("c");
+        strs.remove("f");
+        Assert.assertEquals(0, strs.size());
+
+    }
+
+    @Test
+    public void testRemoveAt2(){
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+        list.removeAt(0);
+        list.removeAt(2);
+        System.out.println(list);
+        Assert.assertTrue(list.peekFirst() == 2);
+        Assert.assertTrue(list.peekLast() == 3);
+
+        list.removeAt(1);
+        list.removeAt(0);
+        Assert.assertEquals(list.size(),0);
+
+    }
 }
