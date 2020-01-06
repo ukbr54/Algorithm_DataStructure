@@ -20,6 +20,24 @@ public class DoublyLinkedList<T> implements Iterable<T>{
     private Node<T> tail = null;
 
     /**
+     * Check the value of first node if it exists, O(1)
+     * @return
+     */
+    public T peekFirst(){
+        if (isEmpty()) throw new RuntimeException("Empty list");
+        return head.data;
+    }
+
+    /**
+     * Check the value of the last node if it exists, O(1)
+     * @return
+     */
+    public T peekLast(){
+        if(isEmpty()) throw new RuntimeException("Empty List");
+        return tail.data;
+    }
+
+    /**
      * Add an element to the beginning of the linked list O(1)
      */
     public void addFirst(T elem){

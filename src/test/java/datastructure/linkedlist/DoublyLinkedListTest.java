@@ -47,4 +47,19 @@ public class DoublyLinkedListTest {
 
         Assert.assertEquals(list.size(),5);
     }
+
+    @Test
+    public void testPeekFirst(){
+        list.addFirst(4);
+        list.addLast(10);
+
+        Assert.assertTrue(list.peekFirst() == 4);
+    }
+
+    @Test
+    public void testPeekLast(){
+        list.addLast(10);
+        list.addFirst(4);
+        Assert.assertTrue(list.peekLast() == 10);
+    }
 }
