@@ -38,6 +38,14 @@ public class DoublyLinkedList<T> implements Iterable<T>{
     }
 
     /**
+     * Add an element to the tail of the linked list, O(1)
+     * @param elem
+     */
+    public void add(T elem){
+        addLast(elem);
+    }
+
+    /**
      * Add an element to the beginning of the linked list O(1)
      */
     public void addFirst(T elem){
@@ -89,11 +97,62 @@ public class DoublyLinkedList<T> implements Iterable<T>{
             for(int i=1; i<index; i++){
                 trav = trav.next;
             }
-            final Node<T> node = new Node<T>(elem, trav.next.prev, trav.next);
+            final Node<T> node = new Node<T>(elem, trav, null);
+            node.next = trav.next;
             trav.next = node;
-            node.next.prev = node.next;
+            if(node.next != null){
+                node.next.prev = node;
+            }
         }
         size++;
+    }
+
+    /**
+     * Remove the first value at the head of the linked list, O(1)
+     * @return
+     */
+    public T removeFirst(){
+        if(isEmpty()) throw new RuntimeException("Empty list");
+
+        // Extract the data at the head and move
+        // the head pointer forwards one node
+        T data = head.data;
+        head = head.next;
+        --size;
+
+        //If the list is empty set the tail to null
+        if(isEmpty()) {
+            tail = null;
+        }
+        //Do a memory cleanup of the previous node
+        else{
+            head.prev = null;
+        }
+        return data;
+    }
+
+    /**
+     * Remove the last value at the tail of the linked list, O(1)
+     * @return
+     */
+    public T removeLast(){
+        if(isEmpty()) throw new RuntimeException("Empty list");
+
+        T data = tail.data;
+        tail = tail.prev;
+        --size;
+
+        if(true){
+            head = null;
+        }else{
+            tail.next = null;
+        }
+        return data;
+    }
+
+    //Remove an arbitrary node from the linked list, O(1)
+    private T remove(Node<T> node){
+        return null;
     }
 
     public Iterator<T> iterator() {
@@ -116,13 +175,32 @@ public class DoublyLinkedList<T> implements Iterable<T>{
         return size;
     }
 
+    /**
+     * Empty this linked list O(n)
+     */
+    public void clear(){
+        Node<T> trav = head;
+        while(trav != null){
+            Node<T> temp = trav.next;
+            trav.next = trav.prev = null;
+            trav.data = null;
+            trav = temp;
+        }
+        head = tail = trav = null;
+        size = 0;
+    }
+
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         Node<T> trav = head;
         while(trav != null){
-            sb.append(trav.data + ", ");
+            if(trav.next != null){
+                sb.append(trav.data + ", ");
+            }else{
+                sb.append(trav.data + "");
+            }
             trav = trav.next;
         }
         sb.append("]");

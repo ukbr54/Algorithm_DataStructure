@@ -62,4 +62,38 @@ public class DoublyLinkedListTest {
         list.addFirst(4);
         Assert.assertTrue(list.peekLast() == 10);
     }
+
+    @Test
+    public void clearTest(){
+        list.addFirst(10);
+        list.addLast(30);
+        list.addAt(20,2);
+
+        list.clear();
+        Assert.assertTrue(list.isEmpty());
+    }
+
+    @Test
+    public void testRemoveFirst(){
+        list.addFirst(10);
+        list.removeFirst();
+        Assert.assertTrue(list.isEmpty());
+
+        list.addLast(20);
+        list.addFirst(10);
+        list.removeFirst();
+        Assert.assertEquals(list.size(),1);
+    }
+
+    @Test
+    public void testRemoveLast(){
+        list.addLast(10);
+        list.removeLast();
+        Assert.assertTrue(list.isEmpty());
+
+        list.addLast(20);
+        list.addFirst(10);
+        list.removeLast();
+        Assert.assertEquals(list.size(),1);
+    }
 }
