@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class DoublyLinkedListTest {
 
+    static final int LOOPS = 10000;
     DoublyLinkedList<Integer> list;
 
     @Before
@@ -154,5 +155,16 @@ public class DoublyLinkedListTest {
         list.removeAt(0);
         Assert.assertEquals(list.size(),0);
 
+    }
+
+    @Test
+    public void testIndexOf(){
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+        Assert.assertEquals(1,list.indexOf(2));
+        Assert.assertEquals(3,list.indexOf(4));
     }
 }
