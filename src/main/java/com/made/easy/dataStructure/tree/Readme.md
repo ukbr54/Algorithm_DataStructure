@@ -32,7 +32,14 @@
  1. Inserting an element into a tree.
  2. Deleting an element from a tree.
  3. Searching for an element.
- 4. Traversing the tree.   
+ 4. Traversing the tree. 
+ 
+ |Binary Tree Operation| Time Complexity | Space Complexity |
+ |---------------------|-----------------|------------------|
+ | PreOrder (recursive/Iterative)| O(n)  | O(n)             |
+ | InOrder  (recursive/Iterative)| O(n)  | O(n)             |
+ | PostOrder (recursive/Iterative)| O(n) | O(n)             |
+ | Level order traversal          |O(n)  | O(n)             | 
    
          
    
