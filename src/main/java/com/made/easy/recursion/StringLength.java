@@ -26,7 +26,7 @@ public class StringLength {
         }
     }
     public static void main(String[] args) {
-        String text = "HelloWorld";
+        String text = "GEEKSFORGEEKS";
         System.out.println(recLength(text));
     }
 }
