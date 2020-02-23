@@ -28,6 +28,7 @@ public class FirstUpperCaseLetter {
     }
 
     public static void main(String[] args) {
+        System.out.println(Character.toString('\0'));
         String text = "geeksforgeeKs";
         System.out.println(firstUppercaseLetter(text,0));
     }
